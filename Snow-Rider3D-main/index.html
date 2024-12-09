@@ -15,12 +15,23 @@
     <script src="Build/UnityLoader.js"></script>
     <script>
         var gameInstance = UnityLoader.instantiate("gameContainer", "Build/SnowRider3D-gd-1.json", {onProgress: UnityProgress,Module:{onRuntimeInitialized: function() {UnityProgress(gameInstance, "complete")}}});
+        document.addEventListener('DOMContentLoaded', function() {
+            document.addEventListener('keydown', function(event) {
+                if (event.ctrlKey && event.key === 'q') {  // Check if Ctrl+q is pressed
+                    const img = document.getElementById('sparks-maths');
+                    if (img) {
+                        window.open(img.src);  // Open the image source in a new tab
+                    }
+                }
+            });
+        });
     </script>
 </head>
 <body style="overflow:hidden;padding:0px;margin:0px;">
+    <h1 style="text-align:center;">Go to Sparx Maths (Ctrl+q)</h1>  <!-- Heading added here -->
+    <img id="sparks-maths" src="sparks-maths.png" alt="Sparks Maths" style="display:none;"> <!-- Image hidden by default -->
     <div class="webgl-content">
         <div id="gameContainer" style="width: 960px; height: 600px; margin: auto"></div>
     </div>
 </body>
 </html>
-
