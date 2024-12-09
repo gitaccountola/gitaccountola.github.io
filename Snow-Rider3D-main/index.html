@@ -18,13 +18,16 @@
         document.addEventListener('DOMContentLoaded', function() {
             document.addEventListener('keydown', function(event) {
                 if (event.ctrlKey && event.key === 'q') {  // Check if Ctrl+q is pressed
-                    const img = document.getElementById('sparks-maths');
-                    if (img) {
-                        window.open(img.src);  // Open the image source in a new tab
-                    }
+                    window.location.href = 'sparks-maths.png';  // Navigate directly to the image
                 }
             });
         });
     </script>
 </head>
+<body style="overflow:hidden;padding:0px;margin:0px;">
+    <h1 style="text-align:center;">Go to Sparx Maths (Ctrl+q)</h1>  <!-- Heading added here -->
+    <div class="webgl-content">
+        <div id="gameContainer" style="width: 960px; height: 600px; margin: auto"></div>
+    </div>
+</body>
 </html>
