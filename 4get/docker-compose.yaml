@@ -1,0 +1,19 @@
+# example docker-compose.yaml
+version: "3.7"
+
+services:
+  fourget:
+    image: luuul/4get:latest
+    restart: unless-stopped
+    environment:
+      - FOURGET_SERVER_NAME=4get.ca
+
+    ports:
+      - "80:80"
+      - "443:443"
+
+    volumes:
+      - /etc/letsencrypt/live/domain.tld:/etc/4get/certs
+      # mount custom banners and captcha
+      - ./banners:/var/www/html/4get/banner
+      - ./captcha:/var/www/html/4get/data/captcha
